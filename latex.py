@@ -1,0 +1,266 @@
+import os
+
+
+def generate_resume_latex(objective, analytical_skills, technical_skills):
+
+    # LaTeX content
+    latex_code = r"""
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.4in}
+\addtolength{\evensidemargin}{-0.4in}
+\addtolength{\textwidth}{0.8in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+\item\small{
+{#1 \vspace{-1pt}}
+}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{-2pt}\item
+\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+\textbf{#1} & #2 \\
+\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+\item
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\textit{\small#1} & \textit{\small #2} \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+\item
+\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+\small#1 & #2 \\
+\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\begin{center}
+\textbf{\Huge \scshape Sweta Parna Nayak} \\ 
+\small (+31) 6 30671282 $|$
+\href{mailto:s.p.nayak@student.utwente.nl}{\underline{s.p.nayak@student.utwente.nl}} $|$
+\href{https://www.linkedin.com/in/sweta-parna-nayak-783736195}{\underline{LinkedIn}} $|$
+Enschede, Netherlands
+\end{center}
+
+
+%-----------Objective-----------
+\section{Objective}
+""" + objective.replace('"', '').replace("Objective: ","") + r"""
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Partner Compliance Screening Intern}{Amsterdam, NL}
+{Philips International B.V (philips.nl)}{Oct 2023 to Apr 2024}
+\resumeItemListStart
+\resumeItem{Directed market investigations in the Indian Subcontinent to bolster brand protection and reduce operational risks}
+\resumeItem{Aligned investigations with EU Taxonomy, CSRD, GRI, and OECD standards, ensuring detailed client information is sourced for enhanced ethical compliance.}
+\resumeItem{Developed a methodology to integrate these standards into the due diligence process.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Associate, Political Research and Strategy}{India}
+{Showtime Consulting Inc. (showtimeconsulting.in)}{Feb 2022 to Jan 2023}
+\resumeItemListStart
+\resumeItem{Researched and designed roadmaps for political campaigns (TDP, NPP) leading up to a landslide victory in the Indian General elections 2024.}
+\resumeItem{Analyzed welfare policies for the Indian states of Andhra Pradesh \& Meghalaya (57M people) to identify financial gaps and recommend recovery methods, comparing allocated funds to actual benefits received.}
+\resumeItem{Prepared and distributed press releases and documented internal communication reports.}
+\resumeItem{Maintained constant communication with field project partners and suppliers, ensuring smooth project execution.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Associate Content Lead}{India}
+{NIIT Limited (niit.com)}{Aug 2021 to Jan 2022}
+\resumeItemListStart
+\resumeItem{Developed web-based and instructor-led training modules for massive online courseware (MOOCs) such as Coursera.}
+\resumeItem{Managed the lifecycle of the end-to-end content management process and mentored 6 content analysts.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Policy and Project Associate}{India}
+{Office of the Member of Parliament, Govt. of India (rajyavardhanrathore.in)}{Sep 2020 to Jun 2021}
+\resumeItemListStart
+\resumeItem{Led sustainable agriculture and community projects in two Rajasthan villages, boosting local livelihoods.}
+\resumeItem{Conducted over 60 stakeholder interviews to shape development strategies and crafted a 200+ question database for local governance.}
+\resumeItem{Authored a gram panchayat (rural) development plan with 150+ action items, published on the eGram Swaraj portal.}
+\resumeItem{Forged key partnerships to enhance project sustainability and job creation.}
+\resumeItemListEnd
+
+\resumeSubheading
+{Intern, Social Worker}{India}
+{Bombay Mothers and Children Welfare Society (thebmcws.com)}{Jan 2019 to Feb 2019}
+\resumeItemListStart
+\resumeItem{Conducted case studies for 20 children with cancer to analyze and address family needs.}
+\resumeItem{Developed an engaging, fun-filled educational model to aid children's recovery.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{University of Twente}{Netherlands}
+{MSc in Public Administration; CGPA: 7.14/10}{Feb 2023 to Aug 2024}
+\resumeSubheading
+{Young India Fellowship, Ashoka University}{India}
+{Postgraduate Diploma in Strategic Leadership; CGPA: 3.38/4.0}{Sep 2020 to Jul 2021}
+\resumeSubheading
+{Tata Institute of Social Sciences}{India}
+{Bachelor of Arts (Hons.) in Social Work; CGPA: 6.8/10.0}{Jun 2017 to Apr 2020}
+\resumeSubHeadingListEnd
+
+
+%-----------Skills and Interests-----------
+\section{Key Competencies \& Interests}
+\begin{itemize}[leftmargin=0.15in, label={}]
+\small{\item{
+\vspace{1mm}
+\textbf{Analytical Skills}{: """ + ', '.join(analytical_skills) + r"""} \\ \vspace{1mm} 
+\textbf{Technical Skills}{: """ + ', '.join(technical_skills) + r"""} \\ \vspace{1mm}
+}}
+\end{itemize}
+\begin{center}
+\end{center}
+\end{document}
+    """
+
+    # Create results directory if it doesn't exist
+    results_dir = "results"
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+
+    # Save LaTeX content to .tex file
+    tex_file_path = os.path.join(results_dir, "resume.tex")
+    with open(tex_file_path, "w") as tex_file:
+        tex_file.write(latex_code)
+
+
+def generate_cover_latex(content, job_title):
+    latex_code = r"""
+\documentclass[11pt,a4paper,roman]{moderncv}      
+\usepackage[english]{babel}
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}   
+
+\moderncvstyle{classic}                            
+\moderncvcolor{green} % Bullet point color                          
+
+% Page margins
+\usepackage[scale=0.8]{geometry} % Page margins
+
+% Your Information, please revise
+\name{Sweta Parna}{Nayak}
+\address{Enschede, Netherlands}
+\phone[mobile]{(+31) 6 30671282}                   
+\email{s.p.nayak@student.utwente.nl}             
+                   
+\begin{document}
+
+\begin{minipage}[t]{\textwidth}
+\end{minipage}
+
+\recipient{Dear Hiring Manager,}{
+Applying for the role of """ + job_title + r"""}
+\opening{\vspace*{-2em}}
+\closing{Sincerely,}{\vspace*{-2em}}
+\enclosure[Enclosures]{Resume, Cover Letter}   
+\makelettertitle
+
+\justifying
+
+""" + content + r"""
+
+\vspace{0.5cm}
+
+\makeletterclosing
+
+\end{document}
+"""
+
+    # Create results directory if it doesn't exist
+    results_dir = "results"
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+
+    # Save LaTeX content to .tex file
+    tex_file_path = os.path.join(results_dir, "cover.tex")
+    with open(tex_file_path, "w") as tex_file:
+        tex_file.write(latex_code)
+
