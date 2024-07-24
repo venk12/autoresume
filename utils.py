@@ -122,15 +122,17 @@ def generate_cover_content(model, sample, ls_skills, job_description, resume):
                  f"3. sample cover letter"
                  f"4. resume for reference regarding my experience"
                  f"I want you to combine these and give me a objective statement that closely matches the job"
-                 f"Give output in string format. The word could should be around 200 to 300 words. highlight my key "
-                 f"competencies and how you would be a great value addition to the team. Just give me the content. "
-                 f"Don't mention trivial and common things like multi-tasking, deadline management etc. "
-                 f"I will use this to prepare my cover letter with proper formatting."
-                 f"Break it up into multiple paragraphs. Have bullet points explaining relevant key competencies required for the job"
                  f"1. {', '.join(ls_skills)}"
                  f"2. {job_description}"
                  f"3. {sample}"
                  f"4. {resume}"
+                 f"Give output in string format. The word could should be around 200 to 300 words. highlight my key "
+                 f"competencies and how you would be a great value addition to the team." 
+                 f"I will use this to prepare my cover letter with proper formatting."
+                 f"Break it up into multiple paragraphs. Have bullet points explaining relevant key competencies "
+                 f"required for the job"
+                 f"Just give me the content. "
+                 f"Don't mention trivial and common things like multi-tasking, deadline management etc."
                  f"Do not add anything else in the output other than the content itself. No summary or commentaries"
     )
 
@@ -138,5 +140,3 @@ def generate_cover_content(model, sample, ls_skills, job_description, resume):
     result = chain.invoke({})
 
     return result
-
-
